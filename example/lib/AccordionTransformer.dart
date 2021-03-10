@@ -47,16 +47,16 @@ class TestWidget extends StatelessWidget {
       Colors.blueAccent,
       Colors.greenAccent
     ];
-    return new TransformerPageView(
+    return TransformerPageView(
         loop: true,
-        transformer: new AccordionTransformer(),
+        transformer: AccordionTransformer(),
         itemBuilder: (BuildContext context, int index) {
-          return new Container(
+          return Container(
             color: list[index % list.length],
-            child: new Center(
-              child: new Text(
+            child: Center(
+              child: Text(
                 "$index",
-                style: new TextStyle(fontSize: 80.0, color: Colors.white),
+                style: TextStyle(fontSize: 80.0, color: Colors.white),
               ),
             ),
           );
@@ -68,8 +68,8 @@ class TestWidget extends StatelessWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new TestWidget(),
+    return Scaffold(
+      body: TestWidget(),
     );
   }
 }

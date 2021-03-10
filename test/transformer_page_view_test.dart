@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:transformer_page_view/transformer_page_view.dart';
 
 void main() {
   testWidgets('TransformerPageView basic usage', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-        home: new TransformerPageView(
+        home: TransformerPageView(
             itemBuilder: (context, index) {
               return Text("0");
             },
@@ -18,11 +17,11 @@ void main() {
   testWidgets('Zero item count ', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-        home: new TransformerPageView(
+        home: TransformerPageView(
             transformer: new PageTransformerBuilder(
                 builder: (Widget child, TransformInfo info) {
-              return new Container(
-                child: new Text("0"),
+              return Container(
+                child: Text("0"),
               );
             }),
             itemCount: 0)));
@@ -33,11 +32,11 @@ void main() {
       (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MaterialApp(
-        home: new TransformerPageView(
-            transformer: new PageTransformerBuilder(
+        home: TransformerPageView(
+            transformer: PageTransformerBuilder(
                 builder: (Widget child, TransformInfo info) {
-              return new Container(
-                child: new Text("0"),
+              return Container(
+                child: Text("0"),
               );
             }),
             itemCount: 10)));
@@ -128,7 +127,7 @@ void main() {
     IndexController controller = new IndexController();
 
     await tester.pumpWidget(MaterialApp(
-        home: new TransformerPageView(
+        home: TransformerPageView(
             controller: controller,
             transformer: new FackTransformer(),
             itemBuilder: (context, index) {
